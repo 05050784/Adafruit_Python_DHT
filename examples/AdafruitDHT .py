@@ -39,9 +39,9 @@ def post_to_mcs(payload):
                         print ("Error: %s")
                         time.sleep(10)
                          # sleep 10 seconds
-        conn.request("POST", "/mcs/v2/devices/" + deviceId + "/datapoints", jso$
+        conn.request("POST", "/mcs/v2/devices/" + deviceId + "/datapoints", json.dumps(payload), headers)
         response = conn.getresponse()
-        print( response.status, response.reason, json.dumps(payload), time.strf$
+        print( response.status, response.reason, json.dumps(payload), time.strftime("%c"))
         data = response.read()
         conn.close()
 
